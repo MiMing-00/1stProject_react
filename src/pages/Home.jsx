@@ -1,11 +1,14 @@
 import React from "react";
+import HomePart1 from "../components/home/HomePart1";
+import HomePart2 from "../components/home/HomePart2";
+import HomePart3 from "../components/home/HomePart3";
 
 const Home = () => {
   return (
     <>
-      <div className="flex border-4 bg-pink-300 w-full flex-auto h-[300px] p-4">
-        여기 슬라이드 되는 친구
-      </div>
+      <HomePart1 />
+      <HomePart2 />
+      <HomePart3 />
     </>
   );
 };
