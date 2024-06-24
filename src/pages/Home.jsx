@@ -1,13 +1,13 @@
 import React from "react";
-import HomePart1 from "../components/home/HomePart1";
-import HomePart2 from "../components/home/HomePart2";
+import DailySilder from "../components/home/DailySilder";
 import HomePart3 from "../components/home/HomePart3";
+import AdoptList from "../components/home/adoptList";
 
 const Home = () => {
   return (
     <>
-      <HomePart1 />
-      <HomePart2 />
+      <DailySilder />
+      <AdoptList />
       <HomePart3 />
     </>
   );
