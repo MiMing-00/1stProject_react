@@ -11,9 +11,7 @@ const ReviewBoard = () => {
         </h2>
         {/* TODO 맵으로 가져오기 */}
         <ul>
-          <li className="flex flex-row m-4 gap-4">
-            <ReviewItem />
-          </li>
+          <ReviewItem />
         </ul>
       </div>
     </>
