@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
+
   return (
     <div className="flex text-black h-14 p-4 mx-auto w-full justify-between">
       <div className="flex space-x-20">

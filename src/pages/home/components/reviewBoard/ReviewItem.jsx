@@ -15,6 +15,7 @@ const ReviewItem = () => {
           <div className="bg-white m-2">텍스트</div>
         </div>
       </li>
+
       {/* TODO 여러개 예시 아래는 이후 지울 것 */}
       <li className="flex flex-row m-4 gap-4">
         <div className="border-2 bg-slate-300 animate-slider rounded">

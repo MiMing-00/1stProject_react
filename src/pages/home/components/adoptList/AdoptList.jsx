@@ -23,6 +23,7 @@ const AdoptList = () => {
           </div>
           <Hover />
         </div>
+
         {/* span에다 링크 넣기 */}
         <div className="xl:flex">
           <h2 className="flex">

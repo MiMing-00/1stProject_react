@@ -8,19 +8,20 @@ console.log(apiUrl);
 export const getAbandonmentData = async () => {
   console.log("API URL:", import.meta.env.VITE_API_URL);
   console.log("API Key:", import.meta.env.VITE_API_KEY);
+
   try {
     if (!apiUrl || !apiKey) {
       throw new Error("VITE_API_URL or VITE_API_KEY is not defined");
     }
 
-    const queryParams = {
-      serviceKey: apiKey,
-      numOfRows: "10", // 요청할 데이터의 개수
-      pageNo: "1", // 페이지 번호
-      _type: "json", // 응답 데이터 형식
-    };
+    // const queryParams = {
+    //   serviceKey: apiKey,
+    //   numOfRows: "10", // 요청할 데이터의 개수
+    //   pageNo: "1", // 페이지 번호
+    //   _type: "json", // 응답 데이터 형식
+    // };
 
-    const response = await axios.get(apiUrl, { params: queryParams });
+    const response = await axios.get(apiUrl);
     return response.data;
   } catch (error) {
     console.error("Error fetching abandonment data:", error);
