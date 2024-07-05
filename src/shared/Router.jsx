@@ -13,7 +13,7 @@ const Router = () => {
         <Route element={<MainLayout />}>
           <Route path="/home" element={<Home />} />
           {/* TODO 임시 설정 */}
-          <Route path="/adoption" element={<AdoptionDetail />} />
+          <Route path="/adoption/:id" element={<AdoptionDetail />} />
           <Route pathe="/review" element={<ReviewBoardDetail />} />
         </Route>
       </Routes>

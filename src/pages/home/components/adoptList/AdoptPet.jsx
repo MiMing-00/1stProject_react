@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 const AdoptPet = ({ pet }) => {
+  const navigate = useNavigate();
+
   return (
-    <li className="m-2 p-2 relative w-[340px] h-[450px] group">
+    <li
+      onClick={() => navigate(`/adoption/${pet.desertionNo}`)}
+      className="m-2 p-2 relative w-[340px] h-[450px] group cursor-pointer"
+    >
       <img
         src={pet.popfile}
         alt={`image of ${pet.kindCd}`}
@@ -14,7 +21,7 @@ const AdoptPet = ({ pet }) => {
           <div className="py-1 flex justify-end">{pet.age}</div>
         </div>
         <div className="flex justify-center text-xl">
-          저에 대해서 더 알고 싶으세요?
+          저에 대해서 더 알고 싶으신가요?
         </div>
         <div>
           <div className="text-white flex justify-end">

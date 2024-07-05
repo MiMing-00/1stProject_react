@@ -3,23 +3,11 @@ import Hover from "../../Hover";
 import AdoptPet from "./AdoptPet";
 import { MdOutlineRateReview } from "react-icons/md";
 import { SiPetsathome } from "react-icons/si";
-import { getAbandonmentData } from "../../../../api/PetApi";
-import { useQuery } from "@tanstack/react-query";
+import usePetQuery from "../../../../hooks/usePetQuery";
 
 const AdoptList = () => {
   const navigate = useNavigate();
-
-  const fetchAbandonmentData = async () => {
-    const response = await getAbandonmentData();
-    return response.response.body.items.item;
-  };
-
-  const { data, isPending, error } = useQuery({
-    queryKey: ["ourPets"],
-    queryFn: fetchAbandonmentData,
-  });
-
-  console.log(data);
+  const { data, isPending, error } = usePetQuery();
 
   if (isPending || !data) {
     return <div>로딩!</div>;
@@ -29,6 +17,8 @@ const AdoptList = () => {
     console.log(error);
     return <div>에러!</div>;
   }
+
+  console.log(data);
 
   return (
     <>

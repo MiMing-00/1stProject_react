@@ -27,24 +27,6 @@ export const getAbandonmentData = async () => {
   return data;
 };
 
-// const queryParams = {
-//   serviceKey: "apiUrl",
-//   numOfRows: "3",
-//   pageNo: "1",
-//   _type: "",
-// };
-
-// axios
-//   .get(apiUrl, { params: queryParams })
-//   .then(function (response) {
-//     console.log("Status:", response.status);
-//     console.log("Headers:", response.headers);
-//     console.log("Body:", response.data);
-//   })
-//   .catch(function (error) {
-//     console.error("Error fetching data:", error);
-//   });
-
 // export const postExpenses = async (newExpense) => {
 //   const { data } = await jsonApi.post("/expensesData", newExpense);
 //   return data;

@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <div className="flex text-black h-14 p-4 mx-auto w-full justify-between">
       <div className="flex space-x-20">
-        <div>로고</div>
+        <div onClick={() => navigate("/home")}>로고</div>
         <SiPetsathome
           onClick={() => navigate("/adoption")}
           className="w-8 h-8 mr-6 cursor-pointer"
