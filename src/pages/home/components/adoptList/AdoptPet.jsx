@@ -1,36 +1,28 @@
-const AdoptPet = () => {
+const AdoptPet = ({ pet }) => {
   return (
-    <>
-      <div className="border-2 border-double border-violet-400 rounded-l bg-violet-100 w-[280px]">
-        <div className="border-2 border-dotted border-slate-400 m-4 p-4 h-[200px]">
-          이미지
+    <li className="m-2 p-2 relative w-[340px] h-[450px] group">
+      <img
+        src={pet.popfile}
+        alt={`image of ${pet.kindCd}`}
+        className="w-full h-full object-cover rounded-xl"
+      />
+      <div className="absolute inset-0 p-4 flex flex-col justify-between text-white font-bold bg-black bg-opacity-50 opacity-0 rounded-xl group-hover:opacity-100 transition-opacity duration-300">
+        <div>
+          <div className="text-lg flex justify-end">
+            {pet.colorCd}의 {pet.kindCd}
+          </div>
+          <div className="py-1 flex justify-end">{pet.age}</div>
         </div>
-        <div className="flex justify-center mx-4 px-4 gap-4 pb-2">
-          <span className="rounded-xl bg-white px-4 py-1">종</span>
-          <span className="px-4 py-1">이름</span>
+        <div className="flex justify-center text-xl">
+          저에 대해서 더 알고 싶으세요?
         </div>
-      </div>
-
-      {/* 여러개일 경우 가정 */}
-      <div className="border-2 border-double border-violet-400 rounded-l bg-violet-100 w-[280px]">
-        <div className="border-2 border-dotted border-slate-400 m-4 p-4 h-[200px]">
-          이미지
-        </div>
-        <div className="flex justify-center mx-4 px-4 gap-4">
-          <span className="rounded-xl bg-white px-4 py-1">종</span>
-          <span className="px-4 py-1">이름</span>
-        </div>
-      </div>
-      <div className="border-2 border-double border-violet-400 rounded-l bg-violet-100 w-[280px]">
-        <div className="border-2 border-dotted border-slate-400 m-4 p-4 h-[200px]">
-          이미지
-        </div>
-        <div className="flex justify-center mx-4 px-4 gap-4">
-          <span className="rounded-xl bg-white px-4 py-1">종</span>
-          <span className="px-4 py-1">이름</span>
+        <div>
+          <div className="text-white flex justify-end">
+            {pet.orgNm}의 {pet.careNm}
+          </div>
         </div>
       </div>
-    </>
+    </li>
   );
 };
 

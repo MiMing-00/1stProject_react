@@ -1,32 +1,30 @@
 import axios from "axios";
 
-const apiUrl = import.meta.env.VITE_API_URL;
+// const apiUrl = import.meta.env.VITE_API_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-console.log(apiUrl);
-
 export const getAbandonmentData = async () => {
-  console.log("API URL:", import.meta.env.VITE_API_URL);
-  console.log("API Key:", import.meta.env.VITE_API_KEY);
+  const url =
+    "http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic";
 
-  try {
-    if (!apiUrl || !apiKey) {
-      throw new Error("VITE_API_URL or VITE_API_KEY is not defined");
-    }
+  const params = {
+    serviceKey: apiKey,
+    bgnde: "",
+    endde: "",
+    upkind: "",
+    kind: "",
+    upr_cd: "",
+    org_cd: "",
+    care_reg_no: "",
+    state: "",
+    neuter_yn: "",
+    pageNo: "1",
+    numOfRows: "9",
+    _type: "json",
+  };
 
-    // const queryParams = {
-    //   serviceKey: apiKey,
-    //   numOfRows: "10", // 요청할 데이터의 개수
-    //   pageNo: "1", // 페이지 번호
-    //   _type: "json", // 응답 데이터 형식
-    // };
-
-    const response = await axios.get(apiUrl);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching abandonment data:", error);
-    throw error;
-  }
+  const { data } = await axios.get(url, { params });
+  return data;
 };
 
 // const queryParams = {
