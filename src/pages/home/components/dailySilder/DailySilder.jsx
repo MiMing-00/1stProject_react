@@ -1,15 +1,29 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { getAbandonmentData } from "../../../../api/PetApi";
+import { useEffect, useState } from "react";
 
 const DailySilder = () => {
+  const [slidePet, setSlidePet] = useState([]);
+  useEffect(() => {
+    const fetchAbandonmentSlideData = async (
+      page = "3",
+      numberOfRows = "7"
+    ) => {
+      const response = await getAbandonmentData(page, numberOfRows);
+      const slideData = response.response.body.items.item;
+      setSlidePet(slideData);
+      return slideData;
+    };
+    fetchAbandonmentSlideData();
+  }, []);
+
   return (
     <>
-      <div className="border-4 border-indigo-500 h-[400px] w-full">
+      <div className="rounded h-[400px] w-full flex">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -22,17 +36,21 @@ const DailySilder = () => {
           }}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
-          <SwiperSlide>Slide 5</SwiperSlide>
-          <SwiperSlide>Slide 6</SwiperSlide>
-          <SwiperSlide>Slide 7</SwiperSlide>
-          <SwiperSlide>Slide 8</SwiperSlide>
-          <SwiperSlide>Slide 9</SwiperSlide>
+          {slidePet?.map((pet) => (
+            <SwiperSlide key={pet.desertionNo}>
+              <img
+                src={pet.popfile}
+                className="object-cover w-full h-full rounded-2xl"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-2xl">
+                <p>{pet.specialMark}</p>
+                <p>
+                  {pet.colorCd}의 {pet.kindCd}
+                </p>
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </>

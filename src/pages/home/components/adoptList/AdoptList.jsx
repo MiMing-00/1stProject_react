@@ -18,8 +18,6 @@ const AdoptList = () => {
     return <div>에러!</div>;
   }
 
-  console.log(data);
-
   return (
     <>
       <div className="flex flex-col gap-4 mx-auto my-4">

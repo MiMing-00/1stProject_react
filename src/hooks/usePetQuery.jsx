@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAbandonmentData } from "../api/PetApi";
 
-const usePetQuery = (id = null) => {
+const usePetQuery = (page = "1", numberOfRows = "9", id = null) => {
   const fetchAbandonmentData = async () => {
-    const response = await getAbandonmentData();
+    const response = await getAbandonmentData(page, numberOfRows);
     const allData = response.response.body.items.item;
 
     if (id) {

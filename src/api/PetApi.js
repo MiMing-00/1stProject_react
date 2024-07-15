@@ -3,7 +3,7 @@ import axios from "axios";
 // const apiUrl = import.meta.env.VITE_API_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-export const getAbandonmentData = async () => {
+export const getAbandonmentData = async (Page, numberOfRows) => {
   const url =
     "http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic";
 
@@ -18,8 +18,8 @@ export const getAbandonmentData = async () => {
     care_reg_no: "",
     state: "",
     neuter_yn: "",
-    pageNo: "1",
-    numOfRows: "9",
+    pageNo: Page,
+    numOfRows: numberOfRows,
     _type: "json",
   };
 
