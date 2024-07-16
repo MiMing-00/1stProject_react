@@ -1,6 +1,7 @@
 import { MdOutlineRateReview } from "react-icons/md";
 import { SiPetsathome } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
+import pet_adoption_logo from "../../../public/image/pet_adoption_logo.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -8,7 +9,12 @@ const Header = () => {
   return (
     <div className="flex text-black h-14 p-4 mx-auto w-full justify-between">
       <div className="flex space-x-20">
-        <div onClick={() => navigate("/home")}>로고</div>
+        <div
+          onClick={() => navigate("/home")}
+          className="w-[50px] h-[50px] rounded-2xl"
+        >
+          <img src={pet_adoption_logo} className="rounded-2xl" />
+        </div>
         <SiPetsathome
           onClick={() => navigate("/adoption")}
           className="w-8 h-8 mr-6 cursor-pointer"

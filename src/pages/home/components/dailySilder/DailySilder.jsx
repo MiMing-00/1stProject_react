@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 const DailySilder = () => {
   const [slidePet, setSlidePet] = useState([]);
+
   useEffect(() => {
     const fetchAbandonmentSlideData = async (
       page = "3",
@@ -23,7 +24,7 @@ const DailySilder = () => {
 
   return (
     <>
-      <div className="rounded h-[400px] w-full flex">
+      <div className="rounded h-[500px] w-full flex">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
